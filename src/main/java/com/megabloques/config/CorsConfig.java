@@ -14,7 +14,13 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:4200"));
+        
+        // Agregamos la URL de Heroku y mantenemos localhost para pruebas
+        config.setAllowedOrigins(List.of(
+            "http://localhost:4200",
+            "https://megabloques-fe-6ac42aeeb7f2.herokuapp.com"
+        ));
+        
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
